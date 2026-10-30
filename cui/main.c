@@ -198,6 +198,7 @@ static int global_init(void) {
     cbreak();
     scrollok(stdscr, FALSE);
     keypad(stdscr, TRUE);
+    ui_mouse_reporting_disable();
 
     clear_body();
     // init libdevcheck

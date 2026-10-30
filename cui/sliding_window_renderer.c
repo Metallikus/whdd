@@ -306,11 +306,10 @@ static void Close(DC_RendererCtx *ctx) {
         wprintw(priv->summary, "Aborted.\n");
     else
         wprintw(priv->summary, "Completed.\n");
-    wprintw(priv->summary, "Press 'm' for menu");
+    wprintw(priv->summary, "Ctrl+M: menu\nCtrl+C: quit");
     wrefresh(priv->summary);
     beep();
-    while (getchar() != 'm')
-        ;
+    ui_wait_final_screen();
     delwin(priv->legend);
     delwin(priv->access_time_stats);
     delwin(priv->vis);
